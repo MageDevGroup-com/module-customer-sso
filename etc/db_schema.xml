@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- Satellite table mapping an IdP subject (`sub`) to a storefront customer.
+         Customers are EAV/API entities, so — unlike admin_user, where the subject is
+         a column on the table — the link lives in its own table and is managed through
+         the customer repository. `sub` is only unique per issuer, so the link is scoped
+         by the active provider code: (provider_code, subject_id) is unique (one IdP
+         identity → at most one customer), guarding against a `sub` collision across
+         providers resolving to the wrong account. The row is removed with its customer
+         via the FK cascade. -->
+    <table name="magedevgroup_customer_sso_subject" resource="default" engine="innodb"
+           comment="MageDevGroup Customer SSO subject links">
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false"
+                comment="Linked customer entity id"/>
+        <column xsi:type="varchar" name="provider_code" nullable="false" length="64"
+                comment="Active SSO provider code that issued the subject"/>
+        <column xsi:type="varchar" name="subject_id" nullable="false" length="255"
+                comment="IdP subject identifier (sub claim)"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="customer_id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MAGEDEVGROUP_CUSTOMER_SSO_SUBJECT_ID">
+            <column name="provider_code"/>
+            <column name="subject_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MAGEDEVGROUP_CUSTOMER_SSO_SUBJECT_CUSTOMER_ID"
+                    table="magedevgroup_customer_sso_subject" column="customer_id"
+                    referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

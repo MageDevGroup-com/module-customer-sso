@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Open/closed seam: provider plugins di-merge their preset into `presets`. -->
+    <type name="MageDevGroup\CustomerSso\Model\PresetRegistry">
+        <arguments>
+            <argument name="presets" xsi:type="array"/>
+        </arguments>
+    </type>
+</config>

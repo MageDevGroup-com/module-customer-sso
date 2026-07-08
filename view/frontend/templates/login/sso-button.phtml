@@ -1,0 +1,22 @@
+<?php
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ *
+ * @var \MageDevGroup\CustomerSso\Block\Login\Sso $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+?>
+<?php if ($block->isAvailable()): ?>
+    <?php $iconUrl = $block->getButtonIconUrl(); ?>
+    <div class="magedevgroup-customer-sso">
+        <a class="action secondary magedevgroup-customer-sso-button"
+           href="<?= $escaper->escapeUrl($block->getStartUrl()) ?>">
+            <?php if ($iconUrl !== null): ?>
+                <img class="magedevgroup-customer-sso-icon"
+                     src="<?= $escaper->escapeUrl($iconUrl) ?>"
+                     alt="" />
+            <?php endif; ?>
+            <span><?= $escaper->escapeHtml($block->getButtonLabel()) ?></span>
+        </a>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,14 @@
+{
+    "magedevgroup_customer_sso_subject": {
+        "column": {
+            "customer_id": true,
+            "provider_code": true,
+            "subject_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "MAGEDEVGROUP_CUSTOMER_SSO_SUBJECT_ID": true,
+            "MAGEDEVGROUP_CUSTOMER_SSO_SUBJECT_CUSTOMER_ID": true
+        }
+    }
+}

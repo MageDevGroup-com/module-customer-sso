@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Persist the one-time OIDC authorization state in the customer session. -->
+    <preference for="MageDevGroup\SsoCore\Api\AuthorizationStateStorageInterface"
+                type="MageDevGroup\CustomerSso\Model\Session\AuthorizationStateStorage"/>
+    <!-- Hide the native password login form when "Keep Password Login" is off under SSO. -->
+    <type name="Magento\Customer\Block\Form\Login">
+        <plugin name="magedevgroup_customer_sso_hide_password_login"
+                type="MageDevGroup\CustomerSso\Plugin\HidePasswordLoginForm"/>
+    </type>
+</config>

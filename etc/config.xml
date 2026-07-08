@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © MageDevGroup. All rights reserved.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <magedevgroup_customer_sso>
+            <general>
+                <enabled>0</enabled>
+                <allow_password_login>1</allow_password_login>
+                <auto_link_policy>require_verification</auto_link_policy>
+            </general>
+        </magedevgroup_customer_sso>
+    </default>
+</config>
