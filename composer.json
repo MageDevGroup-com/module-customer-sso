@@ -3,7 +3,7 @@
     "description": "Storefront SSO capability for Magento 2 — provider-agnostic OIDC login for customers (JIT customer creation, account linking by email/sub, IdP-claim to customer-group mapping).",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "require": {
         "php": "~8.3.0||~8.4.0||~8.5.0",
         "magento/framework": ">=103.0",

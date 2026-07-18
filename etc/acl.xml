@@ -10,8 +10,10 @@
         <resources>
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::stores">
-                    <resource id="Magento_Config::config">
-                        <resource id="MageDevGroup_CustomerSso::config" title="Customer SSO Section" sortOrder="10"/>
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="MageDevGroup_CustomerSso::config" title="Customer SSO Section" sortOrder="10"/>
+                        </resource>
                     </resource>
                 </resource>
             </resource>
